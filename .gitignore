@@ -1,0 +1,10 @@
+# Konfigurasi lokal berisi kredensial database — jangan pernah ikut commit
+.env
+
+# Berkas hasil kerja aplikasi
+/storage/logs/*
+!/storage/logs/.gitkeep
+/public/uploads/units/*
+/public/uploads/games/*
+/public/uploads/payments/*
+!/public/uploads/.htaccess

@@ -1,0 +1,18 @@
+# Simpan line ending LF di basis data repo, meski checkout di Windows.
+# Tanpa hal ini setiap `git add` memberi peringatan "LF will be replaced by CRLF".
+* text=auto eol=lf
+
+# Biner tidak boleh dimodifikasi
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.ico binary
+
+*.php  text
+*.js   text
+*.css  text
+*.sql  text
+*.md   text
+*.html text

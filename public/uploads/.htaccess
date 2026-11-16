@@ -1,0 +1,13 @@
+# Folder uploads HANYA boleh berisi gambar/pdf.
+# Baris di bawah mencegah eksekusi skrip apa pun di dalamnya
+# (mitigasi bila ada file PHP yang lolos unggah).
+
+<FilesMatch "\.(php|phtml|php3|php4|php5|php7|pl|py|jsp|asp|sh|cgi|htaccess)$">
+    Require all denied
+</FilesMatch>
+
+Options -Indexes
+Options -ExecCGI
+RemoveHandler .php .phtml
+RemoveType .php .phtml
+php_flag engine off

@@ -1,0 +1,27 @@
+# Qengamestation — Apache rewrite (folder public = document root)
+# Tanpa baris ini URL akan tampil sebagai /index.php?/katalog
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Bila file/folder fisik ada (assets, uploads) -> sajikan langsung
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Selain itu, kirim semua request ke index.php
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# Jangan pernah menampilkan daftar isi folder
+Options -Indexes
+
+# Blokir akses langsung ke berkas tersembunyi (.env, .htaccess)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
